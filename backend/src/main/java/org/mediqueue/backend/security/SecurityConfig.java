@@ -30,6 +30,7 @@ public class SecurityConfig {
                 .authorizeHttpRequests(auth -> auth
                         .requestMatchers("/", "/public/**").permitAll()
                         .requestMatchers("/medi-queue/auth/**").permitAll()
+                        .requestMatchers("/medi-queue/super-admin/**").hasRole("SUPER_ADMIN")
                         .requestMatchers("/medi-queue/admin/**").hasRole("ADMIN")
                         .requestMatchers("/medi-queue/doctor/**").hasRole("DOCTOR")
                         .requestMatchers("/medi-queue/staff/**").hasRole("STAFF")
