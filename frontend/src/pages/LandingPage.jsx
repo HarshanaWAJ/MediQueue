@@ -6,6 +6,8 @@ import heroImage2 from '../assets/hero2.jpg';
 import heroImage3 from '../assets/hero3.jpg';
 import heroImage4 from '../assets/hero4.jpg';
 
+import contentImage1 from '../assets/content1.jpg';
+
 function LandingPage() {
   const images = [heroImage1, heroImage2, heroImage3, heroImage4];
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -15,7 +17,7 @@ function LandingPage() {
       setCurrentIndex((prevIndex) => (prevIndex + 1) % images.length);
     }, 5000);
     return () => clearInterval(interval);
-  }, []);
+  }, [images.length]);
 
   return (
     <div className="main mt-5" style={{ paddingTop: '1rem' }}>
@@ -45,7 +47,24 @@ function LandingPage() {
         </div>
       </section>
 
-      <div className="container"></div>
+    {/* Contents */}
+      <div className="container mt-5">
+        <div className="content-1">
+          <div className="content-description">
+            <h2>All Hospital Services in One Digital Hub</h2>
+            <p>
+              Centralizing and digitalizing hospital services streamlines healthcare delivery by integrating all essential functions—appointments, patient records, 
+              prescriptions, and billing—into a unified digital platform. This approach not only reduces administrative burdens but also enhances efficiency, transparency, 
+              and accessibility for both patients and medical staff. With everything connected in one system, patients can access care faster, avoid long queues, 
+              and experience more coordinated, personalized treatment across departments and facilities.
+            </p>
+          </div>
+          <div className="image">
+            <img src={contentImage1} alt="Hospital platform" />
+          </div>
+        </div>
+      </div>
+
     </div>
   );
 }

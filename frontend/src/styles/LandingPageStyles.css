@@ -3,9 +3,10 @@
   background-color: #e3f2fd;
 }
 
+/* Hero Section*/
 .hero {
   position: relative;
-  height: 70vh;
+  height: 50vh;
   min-height: 400px;
   overflow: hidden;
   color: #fff;
@@ -58,6 +59,7 @@
 }
 
 .headline {
+  margin-top: 5rem;
   font-size: 3rem;
   font-weight: 900;
   margin-bottom: 0.5rem;
@@ -106,4 +108,46 @@
   transform: scale(1.05);
   outline: 3px solid #e3f2fd;
   outline-offset: 3px;
+}
+
+/* Content */
+
+.content-1 {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.content-2 {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.description {
+  flex: 1;
+  padding-right: 20px;
+}
+
+.image {
+  flex: 1;
+  text-align: right;
+}
+
+.image img {
+  max-width: 80%;
+  height: auto;
+  border-radius: 8px; /* optional */
+}
+
+.content-description {
+  max-width: 650px;  
+  font-size: 1.2rem;
+  max-width: 650px;
+  margin-bottom: 2rem;
+  line-height: 1.6;
+  font-weight: normal;
+  padding: 1rem;
+  font-family:'Franklin Gothic', 'Arial Narrow', Arial, sans-serif;
+  text-align: justify;
 }
