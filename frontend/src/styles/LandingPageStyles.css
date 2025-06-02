@@ -111,43 +111,67 @@
 }
 
 /* Content */
-
-.content-1 {
+/* Instead of .container > div:nth-child(odd), use: */
+.content-block:nth-child(odd) {
   display: flex;
+  flex-direction: row;
   align-items: center;
   justify-content: space-between;
+  gap: 2rem;
+  margin-bottom: 4rem;
+  flex-wrap: wrap;
 }
 
-.content-2 {
+.content-block:nth-child(even) {
   display: flex;
+  flex-direction: row-reverse;
   align-items: center;
   justify-content: space-between;
+  gap: 2rem;
+  margin-bottom: 4rem;
+  flex-wrap: wrap;
 }
 
-.description {
-  flex: 1;
-  padding-right: 20px;
+/* Image and text containers */
+.content-block > .image,
+.content-block > .content-description {
+  flex: 1 1 45%;
+  min-width: 280px;
 }
 
+/* Image alignment */
 .image {
-  flex: 1;
+  text-align: center;
+}
+
+.content-block:nth-child(odd) > .image {
+  text-align: left;
+}
+
+.content-block:nth-child(even) > .image {
   text-align: right;
 }
 
+/* Image styling remains same */
 .image img {
-  max-width: 80%;
+  max-width: 100%;
   height: auto;
-  border-radius: 8px; /* optional */
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+  transition: transform 0.3s ease;
 }
 
+.image img:hover,
+.image img:focus {
+  transform: scale(1.02);
+  outline: none;
+}
+
+/* Text styling */
 .content-description {
-  max-width: 650px;  
   font-size: 1.2rem;
-  max-width: 650px;
-  margin-bottom: 2rem;
   line-height: 1.6;
-  font-weight: normal;
   padding: 1rem;
-  font-family:'Franklin Gothic', 'Arial Narrow', Arial, sans-serif;
   text-align: justify;
+  color: #222;
 }

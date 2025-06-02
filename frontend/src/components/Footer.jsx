@@ -49,7 +49,7 @@ function Footer() {
           <div className="col-md-3" style={{ textAlign: 'center' }}>
             <h6 className="fw-semibold mb-3 text-uppercase">Contact</h6>
             <p className="small mb-2"><i className="fas fa-envelope me-2"></i> support@jhsoftware.com</p>
-            <p className="small mb-2"><i className="fas fa-map-marker-alt me-2"></i> Bangalore, India</p>
+            <p className="small mb-2"><i className="fas fa-map-marker-alt me-2"></i> Sri Lanka, Colombo</p>
             <div className="d-flex justify-content-center justify-content-md-start mt-3" style={{ textAlign: 'center' }}>
               <a href="https://facebook.com/" className="me-3 text-light social-icon" aria-label="Facebook"><i className="fab fa-facebook-f"></i></a>
               <a href="https://facebook.com/" className="me-3 text-light social-icon" aria-label="Twitter"><i className="fab fa-twitter"></i></a>

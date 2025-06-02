@@ -107,6 +107,16 @@ function NavigationBar() {
                   <span className="material-icons me-1">contact_mail</span> Contact
                 </Link>
               </li>
+
+              <li className="nav-item">
+                <Link
+                  to="/news"
+                  className={`nav-link px-3 ${isActive('/news')}`}
+                  onClick={closeNavbar}
+                >
+                  <span className="material-icons me-1">article</span> News
+                </Link>
+              </li>
             </ul>
 
             {/* Login/Register buttons */}

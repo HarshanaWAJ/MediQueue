@@ -7,6 +7,7 @@ import heroImage3 from '../assets/hero3.jpg';
 import heroImage4 from '../assets/hero4.jpg';
 
 import contentImage1 from '../assets/content1.jpg';
+import contentImage2 from '../assets/content2.jpg';
 
 function LandingPage() {
   const images = [heroImage1, heroImage2, heroImage3, heroImage4];
@@ -20,7 +21,7 @@ function LandingPage() {
   }, [images.length]);
 
   return (
-    <div className="main mt-5" style={{ paddingTop: '1rem' }}>
+    <div className="main mt-5 mb-5" style={{ paddingTop: '1rem', paddingBottom:'1rem'}}>
       <section className="hero" aria-label="Hero section">
         <div className="slideshow">
           {images.map((img, index) => {
@@ -48,8 +49,11 @@ function LandingPage() {
       </section>
 
     {/* Contents */}
-      <div className="container mt-5">
-        <div className="content-1">
+      <div className="container mt-5 mb-5">
+         <div className="content-block">
+          <div className="image">
+            <img src={contentImage1} alt="Hospital platform" />
+          </div>
           <div className="content-description">
             <h2>All Hospital Services in One Digital Hub</h2>
             <p>
@@ -59,11 +63,23 @@ function LandingPage() {
               and experience more coordinated, personalized treatment across departments and facilities.
             </p>
           </div>
-          <div className="image">
-            <img src={contentImage1} alt="Hospital platform" />
-          </div>
         </div>
-      </div>
+        
+        <div className="content-block mt-5 mb-5">
+          <div className="image">
+            <img src={contentImage2} alt="Hospital platform" />
+          </div>
+          <div className="content-description">
+            <h2>Cutting Edge Tech Intergration</h2>
+            <p>
+             Our AI-powered platform schedules emergency appointments by analyzing symptoms in real-time. 
+             IoT devices monitor vital signs, feeding secure cloud systems that unify records, prescriptions, 
+             and billing. This reduces admin tasks, boosts efficiency, and improves patient access. 
+             By connecting providers and patients seamlessly, we enable faster, personalized care with shorter wait times across facilities.
+            </p>
+          </div>
+         </div>
+        </div>
 
     </div>
   );
