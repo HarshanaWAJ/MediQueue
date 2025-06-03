@@ -7,6 +7,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import MainLayout from './layouts/MainLayout';
 import AppRoutes from './routes/AppRoutes';
 import AuthRoutes from './routes/AuthRoutes';
+import DashboardRoutes from './routes/DashboardRoutes';
 
 function App() {
   return (
@@ -14,6 +15,7 @@ function App() {
       <MainLayout>
         <AppRoutes />   {/* Basic Pages */}
         <AuthRoutes />  {/* Authentication Routes */}
+        <DashboardRoutes />
       </MainLayout>
     </Router>
   );

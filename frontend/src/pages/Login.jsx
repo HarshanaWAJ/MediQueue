@@ -6,19 +6,18 @@ import LockIcon from '@mui/icons-material/Lock';
 import Visibility from '@mui/icons-material/Visibility';
 import VisibilityOff from '@mui/icons-material/VisibilityOff';
 
-//import API
-import {loginUser} from '../API/auth/authAPI'
-
-//Import Utils
+import { loginUser } from '../API/auth/authAPI';
 import { setToken, getUserFromToken } from '../utils/JWT';
 
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import { Navigate } from 'react-router-dom';
 
 function Login() {
   const { username, setUsername, password, setPassword } = useLoginForm();
   const [showPassword, setShowPassword] = useState(false);
   const [loading, setLoading] = useState(false);
+  const [redirectTo, setRedirectTo] = useState(null);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -29,20 +28,35 @@ function Login() {
 
       if (data.token) {
         setToken(data.token);
-        console.log(getUserFromToken(data.token));
-
         toast.success('Login successful!');
-        // Add redirect or other post-login logic here
+
+        const user = getUserFromToken(data.token);
+        if (user?.roles?.includes('SUPER_ADMIN')) {
+          setRedirectTo('/super-admin');
+        } else if (user?.roles?.includes('admin')) {
+          setRedirectTo('/admin');
+        } else if (user?.roles?.includes('doctor')) {
+          setRedirectTo('/doctor');
+        } else if (user?.roles?.includes('staff')) {
+          setRedirectTo('/staff');
+        } else if (user?.roles?.includes('patient')) {
+          setRedirectTo('/patient');
+        } else {
+          toast.error('Invalid user role.');
+        }
       } else {
         throw new Error('Login failed: No token received');
       }
     } catch (err) {
       toast.error(err.message || 'Login failed');
-      // No need to setError or render error in UI
     } finally {
       setLoading(false);
     }
   };
+
+  if (redirectTo) {
+    return <Navigate to={redirectTo} replace />;
+  }
 
   return (
     <div className="d-flex justify-content-center align-items-center vh-100 bg-light">
@@ -94,7 +108,7 @@ function Login() {
               />
               <div className="input-group-append">
                 <span
-                  className="input-group-text bg-white cursor-pointer"
+                  className="input-group-text bg-white"
                   onClick={() => setShowPassword(!showPassword)}
                   style={{ cursor: 'pointer' }}
                 >
@@ -114,7 +128,6 @@ function Login() {
         </form>
       </div>
 
-      {/* ToastContainer is needed to display toast notifications */}
       <ToastContainer position="top-right" autoClose={3000} hideProgressBar={false} />
     </div>
   );
